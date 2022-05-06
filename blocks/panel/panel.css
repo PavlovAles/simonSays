@@ -1,6 +1,6 @@
 .panel {
   margin: 20px auto;
-  width: 400px;
-  height: 400px;
+  width: min-content;
+  height: min-content;
   position: relative;
 }
