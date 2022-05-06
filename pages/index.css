@@ -2,3 +2,6 @@
 
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts/Manrope/manrope.css);
+
+@import url(../blocks/panel/panel.css);
+@import url(../blocks/panel/__sector/panel__sector.css);
