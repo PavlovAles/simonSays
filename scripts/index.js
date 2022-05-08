@@ -1,10 +1,12 @@
 const panel = document.querySelector('.panel');
 const startButton = panel.querySelector('.panel__button-start');
-const sectors = panel.querySelector('.panel__sector');
+const sectors = panel.querySelectorAll('.panel__sector');
 
 function startGame() {
-  const consiquence = [];
   hideStartButton();
+  const consiquence = [];
+  increaseConsiquence(consiquence);
+  showConsiquence(consiquence);
 }
 
 function hideStartButton() {
@@ -17,5 +19,29 @@ function showStartButton() {
   startButton.removeAttribute('disabled', '');
 }
 
-startButton.addEventListener('click', startGame);
+function increaseConsiquence(consiquence) {
+  const randomSector = Math.floor(Math.random() * 4);
+  consiquence.push(randomSector);
+}
 
+function showConsiquence(consiquence) {
+  let i = 0;
+  loopWithDelay();
+
+  function loopWithDelay() {
+    setTimeout(function() {
+      blinkSector(consiquence[i]);
+      i++;
+      if (i < consiquence.length) loopWithDelay()
+    }, 1000)
+  }
+}
+
+function blinkSector(sectorNumber) {
+  setTimeout(function() {
+    sectors[sectorNumber].classList.add('panel__sector_blink');
+    setTimeout(() => sectors[sectorNumber].classList.remove('panel__sector_blink'), 500)
+  }, 1000)
+}
+
+startButton.addEventListener('click', startGame);
