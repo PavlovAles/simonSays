@@ -25,15 +25,10 @@ function increaseConsiquence(consiquence) {
 }
 
 function showConsiquence(consiquence) {
-  let i = 0;
-  loopWithDelay();
-
-  function loopWithDelay() {
-    setTimeout(function() {
+  for (let i = 0; i < consiquence.length; i++) {
+    setTimeout(function timer() {
       blinkSector(consiquence[i]);
-      i++;
-      if (i < consiquence.length) loopWithDelay()
-    }, 1000)
+    }, i * 1000);
   }
 }
 
