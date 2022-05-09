@@ -1,0 +1,15 @@
+@keyframes blink {
+  0% {
+    filter: contrast(.55);
+  }
+  50% {
+    filter: contrast(1.1);
+  }
+  100% {
+    filter: contrast(.75);
+  }
+}
+
+.panel__sector_blink {
+  animation: blink .5s ease-in forwards;
+}
