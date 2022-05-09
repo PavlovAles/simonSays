@@ -1,4 +1,4 @@
-@keyframes blink {
+/* @keyframes blink {
   0% {
     filter: contrast(.55);
   }
@@ -7,6 +7,21 @@
   }
   100% {
     filter: contrast(.75);
+  }
+} */
+
+@keyframes blink {
+  0% {
+    opacity: .6;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .6;
   }
 }
 
