@@ -4,7 +4,7 @@
   list-style: none;
   background-size: 96%;
   background-repeat: no-repeat;
-  filter: contrast(.75);
+  opacity: .6;
   color: #afafaf
 }
 
