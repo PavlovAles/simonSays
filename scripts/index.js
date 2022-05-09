@@ -2,9 +2,20 @@ const panel = document.querySelector('.panel');
 const startButton = panel.querySelector('.panel__button-start');
 const levelPanel = panel.querySelector('.panel__level');
 const sectors = panel.querySelectorAll('.panel__sector');
+
+const sounds = [
+  new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"),
+  new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"),
+  new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"),
+  new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"),
+  new Audio("../sounds/error.mp3")
+];
+
 let level = 0;
 let gameOrder = [];
 let playerOrder = [];
+
+
 
 function startNewLevel() {
   playerOrder = [];
@@ -42,8 +53,13 @@ function showGameOrder() {
 }
 
 function blinkSector(sectorNumber) {
-    sectors[sectorNumber].classList.add('panel__sector_blink');
-    setTimeout(() => sectors[sectorNumber].classList.remove('panel__sector_blink'), 500)
+  playSound(sectorNumber);
+  sectors[sectorNumber].classList.add('panel__sector_blink');
+  setTimeout(() => sectors[sectorNumber].classList.remove('panel__sector_blink'), 500)
+}
+
+function playSound(sectorNumber) {
+  sounds[sectorNumber].play();
 }
 
 function checkPlayerOrder() {
@@ -59,16 +75,17 @@ function checkPlayerOrder() {
 
 function gameover() {
   levelPanel.textContent = 'fail';
+  sounds[4].play();
 }
 
-function addToOrder(sector) {
-  const sectorNumber = +sector.id[7];
+function addToOrder(sectorNumber) {
   playerOrder.push(sectorNumber);
 }
 
 sectors.forEach(sector => sector.addEventListener('click', (evt) => {
-  blinkSector(evt.target.id[7]);
-  addToOrder(evt.target);
+  const sectorNumber = +evt.target.id[7];
+  blinkSector(sectorNumber);
+  addToOrder(sectorNumber);
   checkPlayerOrder();
 }));
 
