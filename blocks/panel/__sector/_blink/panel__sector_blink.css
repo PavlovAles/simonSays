@@ -1,0 +1,30 @@
+/* @keyframes blink {
+  0% {
+    filter: contrast(.55);
+  }
+  50% {
+    filter: contrast(1.1);
+  }
+  100% {
+    filter: contrast(.75);
+  }
+} */
+
+@keyframes blink {
+  0% {
+    opacity: .6;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .6;
+  }
+}
+
+.panel__sector_blink {
+  animation: blink .5s ease-in forwards;
+}

@@ -1,0 +1,9 @@
+.panel {
+  margin: 20px auto;
+  padding: 1px;
+  width: min-content;
+  height: min-content;
+  position: relative;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px black inset;
+}
